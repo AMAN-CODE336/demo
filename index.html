@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=scr, initial-scale=1.0" />
   <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -44,28 +45,89 @@
   </script>
 
   <!-- doms section -->
-<!-- no.1 getElementById ? -->
+  <!-- no.1 getElementById ? -->
 
   <!-- <div id = "content">hello world</div> -->
 
   <!-- no.2 getElementsbyclassName ? -->
 
-<!-- <div class="item">item 1</div>
+  <!-- <div class="item">item 1</div>
 <div class="item">item 2</div> -->
+
+  <!-- <p id="demo"></p> -->
+
+  <!-- <div>
+  <h1 id="new" class="flex">Lorem ipsum </h1>
+  <p class="flex">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <h2 class="flex">new one</h2>
+  <h3></h3>
+  <img src="https://placeholder.com/300x300" alt="">
+</div> -->
+
+  <!-- <button>click me</button>
+<nav class="border-2 boredr-black flex-col gap-4 p-4 w-40 "  style="display:none;">
+  <a href="">home</a>
+  <a href="">home</a>
+  <a href="">home</a>
+  <a href="">home</a>
+</nav> -->
+  <div>
+    <form action="">
+      <input id="task" type="text" class=" boredr-2 boredr-black p-2 rounder-md ">
+      <button type="submit" class="p-2 boredr-2 boredr-black bg-green-200">add task</button>
+    </form>
+    <ul></ul>
+  </div>
+
+
 
 
   <script>
     // ans.1
 
-// const element = document.getElementById('content')
-// console.log(element.innerText)
+    // const element = document.getElementById('content')
+    // console.log(element.innerText)
 
-// ans.2
+    // ans.2
 
-// const elements = document.getElementsbyclassName('item')
-// console.log(elements[0].innertext)
+    // const elements = document.getElementsbyclassName('item')
+    // console.log(elements[0].innertext)
 
+    // document.getElementbyid("demo").innerhtml = "hello world!"
 
+    // const h3 = document.getElementsByTagName("h3")
+
+    //         setInterval(() => {
+    //             h3[0].innerHTML = "<b>The time is: </b>"+ Date()
+    //         }, 1000);
+
+    // # problem code
+
+    // document.queryselector("button").addEventlistner("click",function () {
+    //   const nav = document.queryselector('nav')
+
+    // if(nav.style.display == "none") {
+    //   nav.style.display = "flex"
+    // } else {
+    //   nav.style.display = "none"
+    // }
+    // })
+
+const myform = document.queryselector("form")
+const task_input = document.queryselector("#task")
+const ul = document.queryselector("ul")
+const task_array = JSON.parse(localStorage.getitem("task"))
+console.log(task_array)
+
+task_array.array.forEach(element => {
+  let li = document.createElement("li")
+  li,textcontent = task.name
+  task_input.value = ""
+  ul.appendchild(li)
+});
+myform.addeventlistener("submit", function (e) {
+  
+})
 
 
   </script>
