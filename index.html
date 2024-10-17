@@ -71,14 +71,22 @@
   <a href="">home</a>
   <a href="">home</a>
 </nav> -->
-  <div>
-    <form action="">
-      <input id="task" type="text" class=" boredr-2 boredr-black p-2 rounder-md ">
-      <button type="submit" class="p-2 boredr-2 boredr-black bg-green-200">add task</button>
-    </form>
-    <ul></ul>
-  </div>
+<div>
+  <form action="">
+      <input id="task" type="text" class="border-2 border-black p-2 rounded-md">
+      <button type="submit" class="p-2 border-2 border-black bg-black text-white rounded-md">Add Task</button>
+  </form>
+  <ul></ul>
+</div>
 
+  <!-- <div class="question">
+    <h1>
+this is quesion ?
+    </h1>
+    <p class="answer style = display:none">
+this is answer
+    </p>
+  </div> -->
 
 
 
@@ -113,21 +121,47 @@
     // }
     // })
 
-const myform = document.queryselector("form")
-const task_input = document.queryselector("#task")
-const ul = document.queryselector("ul")
-const task_array = JSON.parse(localStorage.getitem("task"))
-console.log(task_array)
+    const myForm = document.querySelector("form");
+const taskInput = document.querySelector("#task");
+const ul = document.querySelector("ul");
+let taskArray = JSON.parse(localStorage.getItem("tasks")) || []; 
+console.log(taskArray);
 
-task_array.array.forEach(element => {
-  let li = document.createElement("li")
-  li,textcontent = task.name
-  task_input.value = ""
-  ul.appendchild(li)
+
+taskArray.forEach(element => {
+    let li = document.createElement("li");
+    li.textContent = element.name; 
+    ul.appendChild(li);
 });
-myform.addeventlistener("submit", function (e) {
-  
-})
+
+
+myForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (taskInput.value !== "") {
+        let taskObj = {
+            id: Date.now(),
+            name: taskInput.value
+        };
+        taskArray.push(taskObj);
+        localStorage.setItem("tasks", JSON.stringify(taskArray)); 
+
+        let li = document.createElement("li");
+        li.textContent = taskInput.value; 
+        ul.appendChild(li); 
+        taskInput.value = ""; 
+    }
+    console.log(taskArray);
+});
+
+
+
+// document.querySelectorAll(".question").forEach(question => {
+//     question.addEventListener("click", function () {
+//         let answer = this.querySelector(".answer");
+//         answer.style.display = answer.style.display === "none" ? "block" : "none";
+//     });
+// });
+
 
 
   </script>
