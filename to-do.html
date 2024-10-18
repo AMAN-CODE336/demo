@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-orange-300">
+  <div class="flex ">
+    <div class="flex ">
+      <img
+        src="https://img.freepik.com/premium-photo/cartoon-man-with-backpack-sign-that-says-no_1191871-121531.jpg?ga=GA1.1.1627544180.1729270671&semt=ais_hybrid"
+        alt="" class="h-[38rem] p-4 rounded-lg pt-10 ">
+    </div>
+    <div class="flex flex-col ps-32 pt-20 ">
+      <h1 class="flex justify-center items-center font-bold text-[36px] ">My to do list</h1>
+      <form action="" class="flex justify-center items-center pt-4 gap-2">
+        <input id="task" type="text" class="  border-2 border-black p-2 rounded-md w-[28rem] placeholder : ps-44"
+          placeholder="Enter any task">
+        <button type="submit" class="p-2 border-2 border-black bg-black text-white rounded-md  ">Add Task</button>
+      </form>
+      <ul class=" ps-2 pt-10 gap-4 " placeholder=""></ul>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+
+    const myForm = document.querySelector("form")
+    const taskInput = document.querySelector("#task")
+    const ul = document.querySelector("ul")
+    let taskArray = JSON.parse(localStorage.getItem("tasks")) || []
+    console.log(taskArray)
+
+
+    taskArray.forEach(element => {
+      let li = document.createElement("li")
+      li.textContent = element.name
+      ul.appendChild(li)
+    })
+
+
+    myForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+      if (taskInput.value !== "") {
+        let taskObj = {
+          id: Date.now(),
+          name: taskInput.value
+        }
+        taskArray.push(taskObj)
+        localStorage.setItem("tasks", JSON.stringify(taskArray))
+
+        let li = document.createElement("li")
+        li.textContent = taskInput.value
+        ul.appendChild(li)
+        li.className = "border-2 border-black p-2 rounded-md w-[28rem] bg-white  placeholder : ps-2  "
+        taskInput.value = ""
+
+        let delete_btn = document.createElement("button")
+delete_btn.textContent = "remove"
+delete_btn.className = "font-semibold  ps-72 text-red-600  "
+
+delete_btn.addEventListener("click" , () => {
+  li.remove()
+
+  const index = taskArray.findIndex( t=> t.id === task.id)
+  task_array.splice(index,1)
+  localStorage.setItem("tasks", JSON.stringify(task_array))
+})
+
+li.appendChild(delete_btn)
+
+
+      }
+    })
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

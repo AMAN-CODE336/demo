@@ -71,13 +71,13 @@
   <a href="">home</a>
   <a href="">home</a>
 </nav> -->
-<div>
-  <form action="">
+  <div>
+    <form action="">
       <input id="task" type="text" class="border-2 border-black p-2 rounded-md">
       <button type="submit" class="p-2 border-2 border-black bg-black text-white rounded-md">Add Task</button>
-  </form>
-  <ul></ul>
-</div>
+    </form>
+    <ul></ul>
+  </div>
 
   <!-- <div class="question">
     <h1>
@@ -122,45 +122,45 @@ this is answer
     // })
 
     const myForm = document.querySelector("form");
-const taskInput = document.querySelector("#task");
-const ul = document.querySelector("ul");
-let taskArray = JSON.parse(localStorage.getItem("tasks")) || []; 
-console.log(taskArray);
+    const taskInput = document.querySelector("#task");
+    const ul = document.querySelector("ul");
+    let taskArray = JSON.parse(localStorage.getItem("tasks")) || [];
+    console.log(taskArray);
 
 
-taskArray.forEach(element => {
-    let li = document.createElement("li");
-    li.textContent = element.name; 
-    ul.appendChild(li);
-});
+    taskArray.forEach(element => {
+      let li = document.createElement("li");
+      li.textContent = element.name;
+      ul.appendChild(li);
+    });
 
 
-myForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (taskInput.value !== "") {
+    myForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (taskInput.value !== "") {
         let taskObj = {
-            id: Date.now(),
-            name: taskInput.value
+          id: Date.now(),
+          name: taskInput.value
         };
         taskArray.push(taskObj);
-        localStorage.setItem("tasks", JSON.stringify(taskArray)); 
+        localStorage.setItem("tasks", JSON.stringify(taskArray));
 
         let li = document.createElement("li");
-        li.textContent = taskInput.value; 
-        ul.appendChild(li); 
-        taskInput.value = ""; 
-    }
-    console.log(taskArray);
-});
+        li.textContent = taskInput.value;
+        ul.appendChild(li);
+        taskInput.value = "";
+      }
+      console.log(taskArray);
+    });
 
 
 
-// document.querySelectorAll(".question").forEach(question => {
-//     question.addEventListener("click", function () {
-//         let answer = this.querySelector(".answer");
-//         answer.style.display = answer.style.display === "none" ? "block" : "none";
-//     });
-// });
+    document.querySelectorAll(".question").forEach(question => {
+        question.addEventListener("click", function () {
+            let answer = this.querySelector(".answer");
+            answer.style.display = answer.style.display === "none" ? "block" : "none";
+        });
+    });
 
 
 
